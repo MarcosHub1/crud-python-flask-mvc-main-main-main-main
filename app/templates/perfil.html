@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="min-h-screen w-full flex justify-center font-sans">
+
+    <!-- GRID EM DUAS COLUNAS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl px-6 py-8">
+
+        <!-- ========================================================= -->
+        <!-- ====================== COLUNA ESQUERDA ================== -->
+        <!-- ========================================================= -->
+        <div class="flex flex-col items-center gap-6">
+
+            <!-- FOTO DE PERFIL -->
+            <img src="{{ url_for('static', filename='uploads/' ~ user.foto_perfil) if user.foto_perfil else '/static/img/user.png' }}"
+                class="w-32 h-32 rounded-full border-4 border-[#42A5F5] shadow object-cover">
+
+            <!-- FORM ALTERAR FOTO -->
+            <form action="{{ url_for('update_profile') }}" method="POST" enctype="multipart/form-data"
+                  class="flex flex-col items-center">
+
+                <label class="text-sm text-gray-600 font-semibold mb-1">Alterar foto de perfil</label>
+
+                <input type="file" name="foto_perfil"
+                accept="image/png, image/jpeg, image/jpg"
+                class="border p-2 rounded w-60 bg-white">
+
+
+                <button class="mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded">
+                    Atualizar foto
+                </button>
+            </form>
+
+            <!-- CIDADE / ESTADO -->
+            <div class="flex flex-col gap-3 mt-6 w-full items-center">
+
+                <div class="px-4 py-2 rounded-full border bg-gray-100 w-full text-center">
+                    <strong>Cidade:</strong> {{ user.cidade or "Não informado" }}
+                </div>
+
+                <div class="px-4 py-2 rounded-full border bg-gray-100 w-full text-center">
+                    <strong>Estado:</strong> {{ user.estado or "Não informado" }}
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- ========================================================= -->
+        <!-- ====================== COLUNA DIREITA =================== -->
+        <!-- ========================================================= -->
+        <div class="md:col-span-2 flex flex-col gap-10">
+
+            <!-- INFORMAÇÕES DO USUÁRIO -->
+            <div class="flex flex-col gap-4">
+
+                <label class="bg-[#FFB300] px-4 py-2 rounded-full font-semibold">
+                    Nome Completo: {{ user.nome }}
+                </label>
+
+                <label class="bg-[#FFB300] px-4 py-2 rounded-full font-semibold">
+                    Telefone: {{ user.telefone }}
+                </label>
+
+                <label class="bg-[#FFB300] px-4 py-2 rounded-full font-semibold">
+                    Email: {{ user.email }}
+                </label>
+            </div>
+
+
+            <!-- MEUS PETS -->
+            <div class="bg-[#42A5F5] rounded-xl p-6 shadow-md">
+
+                <p class="text-center font-semibold text-white mb-4">Meus pets:</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+
+                    {% for pet in pets %}
+                    <!-- TODO O SEU CÓDIGO DO CARD DO PET FOI MANTIDO -->
+<div 
+    class="bg-white rounded-xl shadow-lg p-5 flex flex-col items-center hover:shadow-xl transition cursor-pointer"
+    x-data="{ open: false, expandText: false }"
+>
+
+    <!-- Ao clicar no card abre o modal -->
+    <div @click="open = true" class="flex flex-col items-center">
+
+        <!-- Imagem -->
+        {% if pet.imagem %}
+        <img src="{{ url_for('static', filename='uploads/' ~ pet.imagem) }}"
+             class="w-40 h-40 object-cover rounded-lg shadow">
+        {% else %}
+        <div class="w-40 h-40 bg-gray-300 rounded-lg flex items-center justify-center">
+            <span class="text-sm text-gray-600">Sem imagem</span>
+        </div>
+        {% endif %}
+
+        <!-- Nome -->
+        <p class="mt-3 font-bold text-lg text-center">{{ pet.nome }}</p>
+
+        <!-- Status com cor -->
+        {% set cor = 
+            "bg-green-500" if pet.status == "adocao" else
+            "bg-blue-500" if pet.status == "doacao" else
+            "bg-red-500" if pet.status == "perdido" else "bg-gray-500"
+        %}
+        <span class="{{ cor }} text-white text-xs px-2 py-1 rounded-full mt-1">
+            {{ pet.status }}
+        </span>
+
+        <!-- Info rápida -->
+        <p class="text-sm text-gray-500">{{ pet.tipo }} — {{ pet.idade }}</p>
+
+        <!-- Descrição (limitada com Ler mais) -->
+        <p class="mt-2 text-center text-gray-700 text-sm break-words px-2">
+
+            <span x-show="!expandText">
+                {{ pet.descricao[:80] }}{% if pet.descricao|length > 80 %}...{% endif %}
+            </span>
+
+            <span x-show="expandText">
+                {{ pet.descricao }}
+            </span>
+        </p>
+
+        {% if pet.descricao|length > 80 %}
+        <button class="text-blue-500 text-xs mt-1"
+                @click.stop="expandText = !expandText">
+            <span x-show="!expandText">Ler mais</span>
+            <span x-show="expandText">Fechar</span>
+        </button>
+        {% endif %}
+    </div>
+
+    <!-- Botões -->
+    <div class="flex flex-wrap gap-2 mt-4 justify-center">
+    <button 
+        @click="open = true"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 text-sm rounded max-w-fit whitespace-nowrap">
+        Ver detalhes
+    </button>
+
+    <a 
+        href="{{ url_for('update', id=pet.id) }}"
+        class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1.5 text-sm rounded max-w-fit whitespace-nowrap">
+        Editar
+    </a>
+
+    <a 
+        href="{{ url_for('delete', id=pet.id) }}"
+        onclick="return confirm('Tem certeza que deseja excluir?')"
+        class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 text-sm rounded max-w-fit whitespace-nowrap">
+        Excluir
+    </a>
+</div>
+
+    <!-- MODAL -->
+    <div 
+        x-show="open"
+        style="display:none"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+    >
+        <div class="bg-white rounded-xl p-6 w-full max-w-lg relative">
+
+            <!-- Fechar -->
+            <button class="absolute top-2 right-2 text-gray-600"
+                    @click="open = false">
+                ✖
+            </button>
+
+            <!-- Imagem -->
+            {% if pet.imagem %}
+            <img src="{{ url_for('static', filename='uploads/' ~ pet.imagem) }}"
+                 class="w-full h-60 object-cover rounded-lg shadow">
+            {% else %}
+            <div class="w-full h-60 bg-gray-300 rounded-lg flex items-center justify-center">
+                Sem imagem
+            </div>
+            {% endif %}
+
+            <!-- Conteúdo -->
+            <h1 class="text-2xl font-bold mt-4">{{ pet.nome }}</h1>
+
+            <p class="mt-1 text-gray-600">{{ pet.tipo }} — {{ pet.idade }}</p>
+
+            <span class="{{ cor }} text-white px-3 py-1 rounded-full text-xs inline-block mt-2">
+                {{ pet.status }}
+            </span>
+
+            <p class="mt-4 text-gray-700 leading-relaxed">
+                {{ pet.descricao }}
+            </p>
+
+            <p class="mt-4">
+                <strong>Contato:</strong> {{ pet.contato }}
+            </p>
+
+        </div>
+    </div>
+
+</div>                    <!-- {{ super() }} -->
+                    {% endfor %}
+
+                    <!-- Adicionar PET -->
+                    <a href="{{ url_for('create') }}"
+                       class="bg-gray-100 border-2 border-dashed rounded-xl w-full h-60
+                              flex flex-col items-center justify-center hover:bg-gray-200 transition">
+                        <span class="text-4xl text-gray-500">+</span>
+                        <span class="text-gray-600 mt-2 text-sm">Adicionar Pet</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

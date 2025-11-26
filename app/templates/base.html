@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}BomPraPet{% endblock %}</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="bg-[#f1d28b] min-h-screen font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center bg-[#49a3ff] px-6 py-2 shadow-md rounded-b-md">
+    <div class="flex items-center space-x-2">
+      <a href="{{ url_for('index') }}" class="flex items-center space-x-2">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="BomPraPet" class="h-10 w-auto">
+        <span class="text-lg font-semibold text-black">BomPraPet</span>
+      </a>
+    </div>
+
+    <div class="flex space-x-4 items-center">
+      {% if current_user.is_authenticated %}
+      <a href="{{ url_for('create') }}" method="POST">
+        <button type="submit" class="text-white hover:underline">Adicionar Pet</button>
+      </a>
+      <a href="{{ url_for('perfil') }}" class="flex items-center space-x-2">
+        <img 
+        src="{{ url_for('static', filename='uploads/' ~ current_user.foto_perfil) if current_user.foto_perfil else url_for('static', filename='perfil.png') }}" 
+        alt="Perfil" 
+        class="h-9 w-9 rounded-full object-cover">
+      </a>
+
+      <a href="{{ url_for('logout') }}" method="POST">
+        <button type="submit" class="text-white hover:underline">Sair</button>
+      </a>
+      {% else %}
+      <a href="{{ url_for('login') }}" class="text-white hover:underline">Entrar</a>
+      <span class="text-white">|</span>
+      <a href="{{ url_for('register') }}" class="text-white hover:underline">Cadastro</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container mx-auto p-6">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>
+

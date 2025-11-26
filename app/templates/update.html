@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="min-h-screen bg-[#DCC48E] flex flex-col items-center py-10 px-4">
+
+    <!-- CONTAINER PRINCIPAL EM DUAS COLUNAS -->
+    <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+        <!-- IMAGEM DO PET -->
+        <div class="flex justify-center">
+            {% if pet.imagem %}
+                <img src="{{ url_for('static', filename='uploads/' ~ pet.imagem) }}"
+                     class="w-80 h-80 object-cover rounded-xl shadow-xl border-4 border-black">
+            {% else %}
+                <div class="w-80 h-80 flex items-center justify-center bg-gray-300 rounded-xl shadow-xl border-4 border-black text-black font-semibold">
+                    Sem imagem
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- CARD DE UPDATE -->
+        <div class="bg-[#FFC93C] p-8 rounded-2xl shadow-xl border border-gray-300">
+
+            <form method="POST" enctype="multipart/form-data" class="grid grid-cols-1 gap-4">
+
+                <!-- NOME -->
+                <div>
+                    <label class="font-bold text-gray-900">Nome do pet:</label>
+                    <input type="text" name="nome" value="{{ pet.nome }}"
+                           class="w-full p-2 mt-1 rounded bg-white border" required>
+                </div>
+
+                <!-- DESCRIÇÃO -->
+                <div>
+                    <label class="font-bold text-gray-900">Descrição:</label>
+                    <textarea name="descricao" rows="2"
+                              class="w-full p-2 mt-1 rounded bg-white border">{{ pet.descricao }}</textarea>
+                </div>
+
+                <!-- IDADE / ESTADO / CIDADE -->
+                <div class="grid grid-cols-3 gap-3">
+                    <input type="text" name="idade" value="{{ pet.idade }}"
+                           placeholder="Idade"
+                           class="p-2 rounded bg-white border">
+                    <input type="text" name="tipo" value="{{ pet.tipo }}"
+                           placeholder="Espécie"
+                           class="p-2 rounded bg-white border">
+                    <input type="text" name="cor" value="{{ pet.cor }}"
+                           placeholder="Cor"
+                           class="p-2 rounded bg-white border">
+                </div>
+
+                <!-- STATUS -->
+                <div>
+                    <label class="font-bold text-gray-900">Status:</label>
+                    <select name="status" class="w-full p-2 mt-1 rounded bg-white border">
+                        <option value="adocao" {% if pet.status == 'adocao' %}selected{% endif %}>Adoção</option>
+                        <option value="adotado" {% if pet.status == 'adotado' %}selected{% endif %}>Adotado</option>
+                        <option value="perdido" {% if pet.status == 'perdido' %}selected{% endif %}>Perdido</option>
+                    </select>
+                </div>
+
+                <!-- CONTATO -->
+                <div>
+                    <label class="font-bold text-gray-900">Telefone do anunciante:</label>
+                    <input type="text" name="contato" value="{{ pet.contato }}"
+                           class="w-full p-2 mt-1 rounded bg-white border">
+                </div>
+
+                <!-- FOTO NOVA -->
+                <div>
+                    <label class="font-bold text-gray-900">Alterar foto do pet:</label>
+                    <input type="file" name="imagem"
+                           class="w-full mt-1 bg-white p-2 border rounded">
+                </div>
+
+                <!-- BOTÃO -->
+                <button class="bg-blue-600 text-white font-semibold py-2 mt-3 rounded hover:bg-blue-700 transition">
+                    Atualizar pet
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

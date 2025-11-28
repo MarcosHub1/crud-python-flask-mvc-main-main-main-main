@@ -37,18 +37,56 @@
                               class="w-full p-2 mt-1 rounded bg-white border">{{ pet.descricao }}</textarea>
                 </div>
 
-                <!-- IDADE / ESTADO / CIDADE -->
-                <div class="grid grid-cols-3 gap-3">
-                    <input type="text" name="idade" value="{{ pet.idade }}"
-                           placeholder="Idade"
-                           class="p-2 rounded bg-white border">
-                    <input type="text" name="tipo" value="{{ pet.tipo }}"
-                           placeholder="Espécie"
-                           class="p-2 rounded bg-white border">
-                    <input type="text" name="cor" value="{{ pet.cor }}"
-                           placeholder="Cor"
-                           class="p-2 rounded bg-white border">
-                </div>
+        <!-- TIPO / COR -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+    <!-- TIPO -->
+    <select name="tipo"
+            class="w-full bg-white rounded-full px-5 py-3 text-gray-700 outline-none shadow"
+            required>
+        <option value="">Tipo</option>
+        <option value="cachorro" {% if pet.tipo == "cachorro" %}selected{% endif %}>Cachorro</option>
+        <option value="gato" {% if pet.tipo == "gato" %}selected{% endif %}>Gato</option>
+        <option value="pássaro" {% if pet.tipo == "pássaro" %}selected{% endif %}>Pássaro</option>
+    </select>
+
+    <!-- COR -->
+    <select name="cor"
+            class="w-full bg-white rounded-full px-5 py-3 text-gray-700 outline-none shadow">
+        <option value="">Cor</option>
+        <option value="preto" {% if pet.cor == "preto" %}selected{% endif %}>Preto</option>
+        <option value="branco" {% if pet.cor == "branco" %}selected{% endif %}>Branco</option>
+        <option value="marrom" {% if pet.cor == "marrom" %}selected{% endif %}>Marrom</option>
+        <option value="cinza" {% if pet.cor == "cinza" %}selected{% endif %}>Cinza</option>
+    </select>
+
+</div>
+
+<!-- IDADE / STATUS -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+    <!-- IDADE -->
+    <select name="idade"
+            class="w-full bg-white rounded-full px-5 py-3 text-gray-700 outline-none shadow"
+            required>
+        <option value="">Idade</option>
+        <option value="filhote" {% if pet.idade == "filhote" %}selected{% endif %}>Filhote</option>
+        <option value="adulto" {% if pet.idade == "adulto" %}selected{% endif %}>Adulto</option>
+        <option value="idoso" {% if pet.idade == "idoso" %}selected{% endif %}>Idoso</option>
+    </select>
+
+    <!-- STATUS -->
+    <select name="status"
+            class="w-full bg-white rounded-full px-5 py-3 text-gray-700 outline-none shadow"
+            required>
+        <option value="adocao" {% if pet.status == "adocao" %}selected{% endif %}>Para adoção</option>
+        <option value="perdido" {% if pet.status == "perdido" %}selected{% endif %}>Perdido</option>
+        <option value="encontrado" {% if pet.status == "encontrado" %}selected{% endif %}>Encontrado</option>
+        <option value="adotado" {% if pet.status == "adotado" %}selected{% endif %}>Adotado</option>
+    </select>
+
+</div>
+
 
                 <!-- STATUS -->
                 <div>

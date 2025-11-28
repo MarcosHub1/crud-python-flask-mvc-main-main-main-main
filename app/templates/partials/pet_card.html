@@ -1,66 +1,119 @@
-<div x-data="{ open: false }" class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+<div x-data="{ openProfile: false, openPet: false }"
+     class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 cursor-pointer"
+     @click="if(!$event.target.closest('.perfil-dono')) openPet = true">
 
+    <!-- IMAGEM DO PET -->
     {% if item.imagem %}
-        <img src="{{ url_for('static', filename='uploads/' ~ item.imagem) }}"
-             class="w-full h-56 object-cover">
+        <img 
+            src="{{ url_for('static', filename='uploads/' ~ item.imagem) }}"
+            class="w-full h-56 object-cover">
     {% else %}
         <div class="w-full h-56 bg-gray-300 flex items-center justify-center text-gray-600">
             Sem imagem
         </div>
     {% endif %}
 
+    <!-- INFORMAÇÕES DO CARD -->
     <div class="p-4">
         <div class="flex items-start justify-between">
-            <!-- Coluna de informações -->
-            <div class="flex-1 text-sm text-gray-700">
+
+            <!-- COLUNA DE INFORMAÇÕES -->
+            <div class="flex-1 text-sm text-gray-700 leading-5">
                 <p><strong>Nome:</strong> {{ item.nome }}</p>
-                <p><strong>Idade:</strong> {{ item.idade }}</p>
+                <p><strong>Tipo:</strong> {{ item.tipo }}</p>
+                <p><strong>Cor:</strong> {{ item.cor }}</p>
+
+                <p class="mt-1">
+                    <strong>Descrição:</strong>  
+                    <span class="text-gray-600">
+                        {{ item.descricao if item.descricao else "Sem descrição" }}
+                    </span>
+                </p>
+
+                <p class="mt-2"><strong>Idade:</strong> {{ item.idade }}</p>
                 <p><strong>Estado:</strong> {{ item.dono.estado }}</p>
                 <p><strong>Cidade:</strong> {{ item.dono.cidade }}</p>
                 <p><strong>Telefone:</strong> {{ item.dono.telefone }}</p>
                 <p><strong>Email:</strong> {{ item.dono.email }}</p>
             </div>
 
-            <!-- Coluna da imagem do perfil -->
-            <div class="ml-4">
+            <!-- FOTO DO PERFIL DO DONO (NÃO ABRE O MODAL DO PET) -->
+            <div class="ml-4 perfil-dono">
                 <img 
-                    @click="open = true"
-                    class="w-16 h-16 mt-2 rounded-full border-4 border-[#42A5F5] shadow object-cover cursor-pointer"
-                    src="{{ url_for('static', filename='uploads/' ~ item.dono.foto_perfil) if item.dono.foto_perfil else '/static/img/user.png' }}"
-                    alt=""
+                    @click.stop="openProfile = true"
+                    class="w-16 h-16 mt-2 rounded-full border-4 border-[#42A5F5] shadow object-cover cursor-pointer perfil-dono"
+                    src="{{ url_for('static', filename='uploads/' ~ item.dono.foto_perfil) 
+                            if item.dono.foto_perfil 
+                            else '/static/img/user.png' }}"
                 >
             </div>
+
         </div>
     </div>
 
-    <!-- MODAL DO USUÁRIO -->
+
+    <!-- ========== MODAL DO PERFIL DO DONO ========== -->
     <div 
-        x-show="open" 
+        x-show="openProfile" 
         class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
+        x-transition
     >
         <div 
             class="bg-white rounded-xl p-6 w-80 relative"
-            @click.away="open = false"
+            @click.away="openProfile = false"
         >
-            <button @click="open = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">&times;</button>
+            <button @click="openProfile = false" 
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">
+                &times;
+            </button>
+
             <div class="flex flex-col items-center">
                 <img 
                     class="w-24 h-24 rounded-full border-4 border-[#42A5F5] shadow object-cover mb-4"
-                    src="{{ url_for('static', filename='uploads/' ~ item.dono.foto_perfil) if item.dono.foto_perfil else '/static/img/user.png' }}"
-                    alt=""
+                    src="{{ url_for('static', filename='uploads/' ~ item.dono.foto_perfil) 
+                            if item.dono.foto_perfil 
+                            else '/static/img/user.png' }}"
                 >
+
                 <h2 class="text-xl font-bold">{{ item.dono.nome }}</h2>
                 <p><strong>Email:</strong> {{ item.dono.email }}</p>
                 <p><strong>Telefone:</strong> {{ item.dono.telefone }}</p>
                 <p><strong>Estado:</strong> {{ item.dono.estado }}</p>
                 <p><strong>Cidade:</strong> {{ item.dono.cidade }}</p>
             </div>
+        </div>
+    </div>
+
+
+    <!-- ========== MODAL DO PET ========== -->
+    <div 
+        x-show="openPet" 
+        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50"
+        x-transition
+    >
+        <div 
+            class="bg-white rounded-xl p-4 w-96 relative shadow-lg"
+            @click.away="openPet = false"
+        >
+            <button @click="openPet = false" 
+                    class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">
+                &times;
+            </button>
+
+            {% if item.imagem %}
+                <img 
+                    src="{{ url_for('static', filename='uploads/' ~ item.imagem) }}"
+                    class="w-full h-64 object-cover rounded-lg mb-3"
+                >
+            {% endif %}
+
+            <h2 class="text-xl font-bold">{{ item.nome }}</h2>
+            <p><strong>Tipo:</strong> {{ item.tipo }}</p>
+            <p><strong>Cor:</strong> {{ item.cor }}</p>
+            <p><strong>Idade:</strong> {{ item.idade }}</p>
+
+            <p class="mt-2"><strong>Descrição:</strong></p>
+            <p class="text-gray-700">{{ item.descricao }}</p>
         </div>
     </div>
 

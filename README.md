@@ -52,7 +52,7 @@ HTML**
 No Flask, o HTML é renderizado dinamicamente através de templates Jinja2, permitindo a inserção de dados, repetição de elementos e componentes reutilizáveis.
 Ele define toda a organização das páginas — formulários, tabelas, botões e imagens — servindo como base da camada visual do sistema.
 
-Tailwind CSS
+**Tailwind CSS**
 
 - Tailwind CSS é um framework de estilização baseado em classes utilitárias, permitindo que o estilo seja aplicado diretamente no HTML sem a necessidade de arquivos CSS extensos.
 Ele oferece classes prontas para controle de layout, espaçamento, tipografia, cores e responsividade, tornando o desenvolvimento visual mais rápido e padronizado.
@@ -64,6 +64,45 @@ Essa abordagem reduz o tempo de desenvolvimento e mantém o visual da aplicaçã
 ### Figma
 
 O Figma é uma solução online voltada para criação de interfaces e experiência do usuário, projetada para funcionar inteiramente na nuvem. Sua principal característica é permitir que equipes inteiras trabalhem juntas no mesmo arquivo, visualizando alterações em tempo real sem necessidade de envio de versões ou arquivos separados. A plataforma oferece ferramentas completas para desenho de layouts, criação de componentes padronizados, montagem de fluxos navegáveis e registro de feedback dentro do próprio projeto.
+
+## Metodologia:
+
+### **Scrum**
+
+A metodologia **Scrum** é uma abordagem ágil que busca organizar e tornar mais eficiente a colaboração entre todos os participantes de um projeto. Seu objetivo principal é garantir que a equipe trabalhe de forma integrada, com comunicação clara e foco em entregar um produto de qualidade.
+
+Ela é especialmente indicada para **ambientes dinâmicos e complexos**, onde os requisitos podem mudar rapidamente e é necessário ter flexibilidade para se adaptar a novas prioridades. O Scrum favorece esse tipo de contexto porque trabalha com ciclos curtos de desenvolvimento, permitindo ajustes constantes ao longo do processo.
+
+Para funcionar de maneira eficaz, o Scrum se baseia em um conjunto de **papéis, eventos e artefatos**. Os papéis definem as responsabilidades de cada integrante; os eventos — como as Sprints, as reuniões diárias e as revisões — ajudam a manter o andamento do projeto organizado; e os artefatos, como o Product Backlog, garantem clareza sobre o que deve ser feito.
+
+Assim, o Scrum oferece uma estrutura que facilita o trabalho em equipe, permite respostas rápidas a mudanças e contribui para um desenvolvimento ágil e de alta qualidade.
+
+## Arquitetura:
+
+### **Use Case Diagram**:
+
+<img width="406" height="331" alt="image" src="https://github.com/user-attachments/assets/269e0c6b-a2da-40b3-a4b6-2071f4cbd61f" />
+
+## Site maps:
+
+<img width="512" height="316" alt="image (1)" src="https://github.com/user-attachments/assets/06b63dbd-838b-42e8-9da0-43bcc65a4d18" />
+
+## User Flow:
+
+<img width="1122" height="583" alt="image (2)" src="https://github.com/user-attachments/assets/3af1d1b7-fc83-4e79-911a-860e83d5dddc" />
+
+<img width="1196" height="431" alt="image (3)" src="https://github.com/user-attachments/assets/bc6e958a-21d5-430b-99b8-49a79955c098" />
+
+<img width="1120" height="422" alt="image (4)" src="https://github.com/user-attachments/assets/2573a940-d8a8-4ba0-8479-d1dbf843b692" />
+
+<img width="688" height="360" alt="image (5)" src="https://github.com/user-attachments/assets/e45fe8e2-8a38-4f49-8c5e-7fcb90694e70" />
+
+<img width="1540" height="508" alt="image (6)" src="https://github.com/user-attachments/assets/143232c7-0586-42b9-8d8d-8c4189405676" />
+
+
+
+
+
 
 
 

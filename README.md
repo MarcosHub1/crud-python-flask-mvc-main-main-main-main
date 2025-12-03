@@ -1,5 +1,69 @@
-## Objetivos do Projeto:
+
+# Documentação Tecnica BomPraPet
+
+### - Objetivos do Projeto:
 
 Este projeto tem o objetivo de desenvolver e implementar um software voltado para petshops e organizações de proteção animal, com foco na gestão de cadastros, processos de adoção e histórico de saúde dos animais. O projeto busca organizar informações de forma eficiente, permitindo acesso seguro e atualizado por estabelecimentos, tutores e potenciais adotantes.
 
 O sistema também visa aprimorar a comunicação entre os envolvidos no cuidado animal, tornando o processo de adoção mais transparente e responsável. Com isso, contribui para a conscientização sobre a guarda responsável e apoia ações de prevenção ao abandono, integrando tecnologia e bem-estar animal.
+
+### - Justificativa:
+
+Este software é voltado ao incentivo da guarda responsável. Além de aprimorar os processos internos das instituições, o sistema tem como finalidade melhorar a comunicação entre tutores, profissionais e organizações, estimulando ações de prevenção e cuidado contínuo. Assim, a tecnologia deixa de ter um papel apenas operacional e passa a contribuir diretamente para a diminuição de casos de abandono e negligência.
+
+
+
+
+## Linguagens de Programação:
+
+### Programming Languages
+**Python (Version 3.12.4)**
+
+- Python é a linguagem principal utilizada no backend da aplicação. Ela oferece uma sintaxe simples, alto nível de legibilidade e uma ampla coleção de bibliotecas, o que facilita o desenvolvimento de sistemas web.
+No contexto desta solução, Python é responsável por gerenciar rotas, processar requisições e renderizar páginas usando Flask.
+Sua leveza e eficiência fazem dele uma escolha ideal para aplicações que precisam ser executadas em ambientes com hardware reduzido e que exigem respostas rápidas do servidor.
+
+### Frontend Interactivity
+**Alpine.js** 
+
+- Alpine.js é o framework JavaScript utilizado no frontend para adicionar interatividade leve e direta aos templates HTML renderizados pelo Flask.
+Ele funciona por meio de atributos inseridos no próprio HTML, tornando desnecessário o uso de arquivos JavaScript separados.
+- No contexto desta aplicação, Alpine.js é essencial principalmente para funcionalidades como: gerenciamento de estado simples na interface, controle de exibição de elementos, manipulação de eventos diretamente nos componentes, pré-visualização de arquivos de imagem escolhidos pelo usuário antes do envio.
+- Essa última capacidade — pré-visualizar imagens — permite que o usuário selecione um arquivo e veja imediatamente o conteúdo sem recarregar a página, garantindo uma experiência mais fluida e intuitiva.
+Com comandos como x-on:change e x-bind:src, Alpine.js identifica o arquivo selecionado e atualiza dinamicamente a imagem exibida na interface.
+- Sua abordagem minimalista torna-o perfeito para projetos pequenos e médios, oferecendo comportamento moderno sem a complexidade de frameworks maiores.
+
+## Estrutura:
+
+**Framework
+Flask**
+
+- Flask é um microframework Python utilizado para construir aplicações web leves e modulares.
+Ele fornece os componentes fundamentais para definir rotas, processar requisições HTTP e renderizar templates HTML por meio do motor de templates Jinja2.
+- Por ser minimalista, Flask permite uma estrutura flexível onde a lógica da aplicação pode ser concentrada diretamente nos arquivos de rota, sem necessidade de camadas adicionais como controllers separados.
+Isso torna o desenvolvimento mais rápido e facilita a manutenção do código, sendo ideal para aplicações web de baixa e média complexidade, APIs simples e projetos que exigem agilidade no desenvolvimento.
+
+## Linguagens de Marcação:
+
+**Markup Languages
+HTML**
+
+- HTML (HyperText Markup Language) é a linguagem responsável pela estrutura de todas as páginas da aplicação.
+No Flask, o HTML é renderizado dinamicamente através de templates Jinja2, permitindo a inserção de dados, repetição de elementos e componentes reutilizáveis.
+Ele define toda a organização das páginas — formulários, tabelas, botões e imagens — servindo como base da camada visual do sistema.
+
+Tailwind CSS
+
+- Tailwind CSS é um framework de estilização baseado em classes utilitárias, permitindo que o estilo seja aplicado diretamente no HTML sem a necessidade de arquivos CSS extensos.
+Ele oferece classes prontas para controle de layout, espaçamento, tipografia, cores e responsividade, tornando o desenvolvimento visual mais rápido e padronizado.
+- Sua integração com Flask é direta: ao aplicar as classes nos templates HTML, o desenvolvedor obtém páginas consistentes, modernas e de fácil manutenção.
+Essa abordagem reduz o tempo de desenvolvimento e mantém o visual da aplicação limpo e organizado.
+
+## Protótipo:
+
+### Figma
+
+O Figma é uma solução online voltada para criação de interfaces e experiência do usuário, projetada para funcionar inteiramente na nuvem. Sua principal característica é permitir que equipes inteiras trabalhem juntas no mesmo arquivo, visualizando alterações em tempo real sem necessidade de envio de versões ou arquivos separados. A plataforma oferece ferramentas completas para desenho de layouts, criação de componentes padronizados, montagem de fluxos navegáveis e registro de feedback dentro do próprio projeto.
+
+
+

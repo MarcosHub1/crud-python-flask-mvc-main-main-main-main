@@ -1,5 +1,5 @@
 
-# Documentação Tecnica BomPraPet
+# Documentação Técnica BomPraPet
 
 ### - Objetivos do Projeto:
 

@@ -99,10 +99,69 @@ Assim, o Scrum oferece uma estrutura que facilita o trabalho em equipe, permite 
 
 <img width="1540" height="508" alt="image (6)" src="https://github.com/user-attachments/assets/143232c7-0586-42b9-8d8d-8c4189405676" />
 
+## Project process diagram:
+
+<img width="897" height="632" alt="image (7)" src="https://github.com/user-attachments/assets/f6643a24-9aef-4009-8711-e9afbe4192af" />
+
+## **Levantamento de Requisitos**
+
+### REQUISITOS FUNCIONAIS:
+
+Os requisitos funcionais descrevem o que um sistema deve fazer para atender às expectativas e necessidades do usuário. Estão diretamente relacionados às funções e operações que o sistema deve realizar, como processar informações ou executar tarefas específicas. Esses requisitos são a base para determinar como o sistema irá se comportar durante a interação com o usuário, garantindo que ele atenda aos seus objetivos de forma prática e eficiente.
+
+Lista de Requisitos Funcionais
+
+[RF001] – Permitir o registro de animais com informações como nome, espécie, raça, idade, sexo, estado de saúde e histórico veterinário.
+
+[RF002] – Registrar dados dos tutores e adotantes, incluindo informações de contato, endereço e histórico de adoções.
+
+[RF003] – Registrar vacinas, consultas, tratamentos e gerar alertas automáticos para próximas aplicações ou retornos veterinários.
+
+[RF004] – Permitir a divulgação de animais disponíveis para adoção com fotos e perfil descritivo utilizando IA.
+
+[RF005] – Enviar notificações ou lembretes aos tutores/adotantes.
+
+[RF006] – Enviar alertas automáticos sobre vacinas, consultas, renovações e acompanhamento pós-adoção.
+
+[RF007] – Permitir diferentes tipos de acesso (administrador, funcionário, voluntário).
+
+[RF008] – Permitir a inclusão de casos de animais resgatados das ruas, com local, condições e responsável pelo resgate.
+
+### REQUISITOS NÃO FUNCIONAIS:
+
+Os requisitos não funcionais são basicamente as características e restrições que um sistema deve cumprir para garantir sua qualidade e desempenho. Não descreve o que o sistema faz, mas sim como o sistema deve operar. Questões como tempo de resposta, segurança, disponibilidade, compatibilidade e escalabilidade se encaixam neste contexto. Esses requisitos garantem que o sistema funcione de forma adequada, seja confiável e atenda aos padrões esperados pelos usuários e desenvolvedores.
+
+Lista de Requisitos Não Funcionais
+
+[RNF001] – O sistema deve responder às requisições do usuário para operações comuns (ex: consulta de produtos, agendamento, cadastro de cliente).
+
+[RFN002] – O sistema de IA deve processar e identificar a imagem do animal e irá dizer se ele está em estado de abandono ou não.
+
+[RNF003] – Os dados dos clientes e dos pets devem ser armazenados de forma criptografada no banco de dados.
+
+[RNF004] – O sistema deve implementar autenticação e controle de acesso baseado em papéis.
+
+[RNF005] – A interface deve ser intuitiva e responsiva, acessível em todas as redes de sites.
+
+[RNF006] – O sistema deve utilizar design limpo e amigável, com ícones e cores que remetam ao universo pet.
+
+[RNF007] – O sistema deve ter taxa de disponibilidade mínima de 99% durante o horário comercial.
+
+[RNF008] – Deve realizar backups automáticos diários do banco de dados.
+
+[RNF009] – Em caso de falha da IA, o sistema deve continuar operando com funcionalidades básicas.
+
+[RNF010] – O sistema deve ser compatível com os navegadores mais utilizados (Chrome, Edge, Firefox).
 
 
+## Componentes Principais:
 
-
+- Login
+- Cadastro
+- Homepage
+- Publicar um pet para adoção
+- Ver quais os pets cadastrados
+- Cadastro de animais para adoção
 
 
 

@@ -204,9 +204,7 @@ Lista de Requisitos Não Funcionais
 
 <img width="369" height="791" alt="image (22)" src="https://github.com/user-attachments/assets/9f639b5b-799d-48c8-8d06-bb8a093a8ac5" />
 
-## Instalação WEB:
-
-# CRUD flask tutorial
+# Instalação WEB:
 
 ## Passo a passo (Flask + MySQL Workbench)
 
@@ -276,3 +274,15 @@ rode no Mysql:
 
 USE crud_flask;
 SELECT * FROM pet;
+
+# Equipe de Desenvolvimento:
+
+**Eduardo Henrique**
+
+**Marcos Paulo**
+
+**Marcela Marque**
+
+**Gabriel Virginio**
+
+**Gabriel da Rosa**

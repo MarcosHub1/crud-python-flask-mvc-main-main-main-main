@@ -163,5 +163,45 @@ Lista de Requisitos Não Funcionais
 - Ver quais os pets cadastrados
 - Cadastro de animais para adoção
 
+## Protótipo Inicial:
 
+<img width="739" height="600" alt="image (8)" src="https://github.com/user-attachments/assets/bfa7240d-a11a-4be7-9b1d-7344eefd26f3" />
+
+<img width="733" height="469" alt="image (9)" src="https://github.com/user-attachments/assets/349c2a56-40fa-4245-adf1-53ecb77cda3f" />
+
+<img width="737" height="498" alt="image (10)" src="https://github.com/user-attachments/assets/2bee1b43-11a5-4b04-bbaa-85c0bd4592d1" />
+
+<img width="738" height="522" alt="image (11)" src="https://github.com/user-attachments/assets/90b77273-3504-4c37-9639-4404dbe6d90c" />
+
+<img width="738" height="586" alt="image (12)" src="https://github.com/user-attachments/assets/960359ab-0351-490d-ab11-00813f9fd0c7" />
+
+<img width="736" height="585" alt="image (13)" src="https://github.com/user-attachments/assets/46133706-4172-441b-be9d-36faffd35712" />
+
+
+## Protótipo Final:
+
+<img width="1600" height="754" alt="image (14)" src="https://github.com/user-attachments/assets/4aad1da4-2d49-445e-8b52-68729620e805" />
+
+<img width="1600" height="748" alt="image (15)" src="https://github.com/user-attachments/assets/4608b7b6-f06e-4190-b703-32241b5c0fc1" />
+
+<img width="1600" height="751" alt="image (16)" src="https://github.com/user-attachments/assets/99f3e081-d4a9-4e6b-bd0d-741d68452712" />
+
+<img width="1280" height="599" alt="image (17)" src="https://github.com/user-attachments/assets/be659978-de58-429a-890e-c15890a08df8" />
+
+<img width="1280" height="601" alt="image (18)" src="https://github.com/user-attachments/assets/5c2f4247-d449-4922-8d56-472c9c77acf1" />
+
+
+## Código:
+
+### Estrutura do projeto Web
+
+<img width="464" height="460" alt="image (19)" src="https://github.com/user-attachments/assets/26b7bbc9-964b-46cd-aad8-7e61d4f1feee" />
+
+<img width="496" height="792" alt="image (20)" src="https://github.com/user-attachments/assets/abc4a098-3fff-4a35-bbcc-8a6cf653e3a5" />
+
+<img width="610" height="724" alt="image (21)" src="https://github.com/user-attachments/assets/830befe0-6444-4257-9f09-18ce7bf2470c" />
+
+<img width="369" height="791" alt="image (22)" src="https://github.com/user-attachments/assets/9f639b5b-799d-48c8-8d06-bb8a093a8ac5" />
+
+## Instalação WEB:
 

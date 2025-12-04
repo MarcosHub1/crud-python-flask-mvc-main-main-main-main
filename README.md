@@ -11,9 +11,6 @@ O sistema também visa aprimorar a comunicação entre os envolvidos no cuidado 
 
 Este software é voltado ao incentivo da guarda responsável. Além de aprimorar os processos internos das instituições, o sistema tem como finalidade melhorar a comunicação entre tutores, profissionais e organizações, estimulando ações de prevenção e cuidado contínuo. Assim, a tecnologia deixa de ter um papel apenas operacional e passa a contribuir diretamente para a diminuição de casos de abandono e negligência.
 
-
-
-
 ## Linguagens de Programação:
 
 ### Programming Languages
@@ -205,3 +202,73 @@ Lista de Requisitos Não Funcionais
 
 ## Instalação WEB:
 
+# CRUD flask tutorial
+
+## Passo a passo (Flask + MySQL Workbench)
+
+### Instalar
+
+### 1) Crie o banco e (opcional) um usuário dedicado
+
+No MySQL Workbench (Query):
+
+CREATE DATABASE crud_flask;
+CREATE USER 'flaskuser'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON crud_flask.* TO 'flaskuser'@'localhost';
+FLUSH PRIVILEGES;
+
+> Se preferir usar root, pode pular a criação do usuário e só usar seu root e senha.
+
+### 2) Ajuste o config.py
+
+Abra o arquivo e deixe assim (troque pelos seus dados):
+
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config:
+    # Formato: mysql+pymysql://USUARIO:SENHA@HOST/NOME_DO_BANCO
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://flaskuser:1234@localhost/crud_flask'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+### 3) Crie e ative o ambiente virtual
+
+No terminal, dentro da pasta do projeto:
+
+**Windows**
+
+python -m venv venv
+venv\Scripts\activate
+
+**Linux/Mac**
+
+python3 -m venv venv
+source venv/bin/activate
+
+
+### 4) Instale as dependências
+
+pip install -r requirements.txt
+
+pip install Pillow
+
+> Se aparecer erro de driver, instale:
+
+pip install pymysql
+
+### 5) Suba a aplicação (as tabelas são criadas na 1ª execução)
+
+O seu run.py já faz db.create_all() automaticamente — então basta rodar:
+
+python run.py
+
+Acesse no navegador:
+
+http://127.0.0.1:5000/
+
+### 6) Verifique se os itens estão no MySql
+
+rode no Mysql:
+
+USE crud_flask;
+SELECT * FROM pet;

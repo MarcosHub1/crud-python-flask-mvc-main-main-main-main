@@ -153,12 +153,16 @@ Lista de Requisitos Não Funcionais
 
 ## Componentes Principais:
 
-- Login
 - Cadastro
-- Homepage
-- Publicar um pet para adoção
-- Ver quais os pets cadastrados
-- Cadastro de animais para adoção
+    - Qualquer um que visite a página sem possuir um cadastro e sem ter login podem realizar um cadastro preenchendo as informações requisitadas.
+- visualização de Pets
+    - Qualquer um que visite a página sem possuir um cadastro pode visualizar o pet dentro da pagina principal.
+- visualização do perfil de quem publicou o pet
+    - Dentro da página principal dentro das postagens do pet, qualqur um pode visualizar quem postou
+- Publicar um pet
+    - Somente quem possui um cadastro poderá publicar um pet.
+- pesquisa por nome de um pet
+    - Quem visualiza dentro da página principal poderá pesquisar o pet através do nome cadastrado.
 
 ## Protótipo Inicial:
 
